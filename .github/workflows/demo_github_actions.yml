@@ -1,5 +1,5 @@
 name: learn_github_actions
-on: [push]
+on: workflow_dispatch # This means the workflow will be triggered manually
 jobs:
     check-bats-version:
         runs-on: ubuntu-latest

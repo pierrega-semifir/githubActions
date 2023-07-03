@@ -1,0 +1,23 @@
+name: Amnesia
+on: workflow_dispatch
+
+env:
+    name: Pierre
+
+jobs:
+    say_hello:
+        runs-on: ubuntu-latest
+        env:
+            entreprise: Semifir
+        steps:
+            - name: Dit Bonjour
+              run: echo `Salut $name ! Tu travailles chez $entreprise ? Alors bon courage !`
+              env:
+                day: Lundi
+            - name: Lundi ?
+              run: echo `Aujourd'hui, nous sommes $day`
+    say_goodbye:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Dit Au revoir
+              run: echo `Au revoir $name !`
