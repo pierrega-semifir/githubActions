@@ -2,8 +2,8 @@ name: if
 on: [push, pull_request]
 
 env:
-    push: "C'est un push !"
-    pull: "C'est une pull request !"
+    push_event: "C'est un push !"
+    pull_event: "C'est une pull request !"
 
 jobs:
     if_push:
@@ -12,11 +12,11 @@ jobs:
             - uses: actions/checkout@v3
             - name: Push
               if: github.event_name == 'push'
-              run: echo "$push"
+              run: echo "$push_event"
     if_pull:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
             - name: Pull Request
               if: github.event_name == 'pull_request'
-              run: echo "$pull"
+              run: echo "$pull_event"
