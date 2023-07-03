@@ -1,0 +1,19 @@
+name: if
+on: workflow_dispatch
+
+env:
+    name: Pierre
+
+jobs:
+    if_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Dit Bonjour
+              if: env.name == 'Pierre'
+              run: echo `Salut $name !`
+    if_job2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Dit Au revoir
+              if: env.name != 'Pierre'
+              run: echo `Au revoir $name !`
