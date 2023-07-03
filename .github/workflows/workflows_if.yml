@@ -1,19 +1,22 @@
 name: if
-on: workflow_dispatch
+on: [push, pull_request]
 
 env:
-    name: Pierre
+    push: "C'est un push !"
+    pull: "C'est une pull request !"
 
 jobs:
-    if_job:
+    if_push:
         runs-on: ubuntu-latest
         steps:
-            - name: Dit Bonjour
-              if: env.name == 'Pierre'
-              run: echo "Salut $name !"
-    if_job2:
+            - uses: actions/checkout@v3
+            - name: Push
+              if: github.event_name == 'push'
+              run: echo "$push"
+    if_pull:
         runs-on: ubuntu-latest
         steps:
-            - name: Dit Au revoir
-              if: env.name != 'Pierre'
-              run: echo "Au revoir $name !"
+            - uses: actions/checkout@v3
+            - name: Pull Request
+              if: github.event_name == 'pull_request'
+              run: echo "$pull"
