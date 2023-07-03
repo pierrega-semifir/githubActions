@@ -10,10 +10,10 @@ jobs:
         steps:
             - name: Dit Bonjour
               if: env.name == 'Pierre'
-              run: echo `Salut $name !`
+              run: echo "Salut $name !
     if_job2:
         runs-on: ubuntu-latest
         steps:
             - name: Dit Au revoir
               if: env.name != 'Pierre'
-              run: echo `Au revoir $name !`
+              run: echo "Au revoir $name !"
