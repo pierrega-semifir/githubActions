@@ -1,6 +1,7 @@
 name: Workflow Run
 on: 
     workflow_run:
+        workflows: ["Pull Requests"]
         types: [completed]
 
 jobs:
@@ -8,5 +9,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: workflow_run
-              if: github.event.workflow_run.status == 'completed'
               run : echo "Worlflow is Completed" 
