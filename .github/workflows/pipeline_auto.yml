@@ -1,0 +1,14 @@
+name: pipeline
+on: workflow_dispatch
+
+jobs:
+    list:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                fruit: [pomme,orange,banane,cerise]
+                noms: [pierre,paul,jacques]
+        name: phrase
+        steps:
+            - name: matrix phrase
+              run: echo "${{matrix.noms}} mange une ${{matrix.fruit}}, et il adore ça !"
