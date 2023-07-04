@@ -1,0 +1,15 @@
+name: Workflow depends
+on: workflow_dispatch
+
+jobs:
+    workflow_depends_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name:  workflow_depends
+              run : echo "Worlflow is Running" 
+    workflow_depends_job2:
+        runs-on: ubuntu-latest
+        needs: workflow_depends_job
+        steps:
+            - name:  workflow_depends_2
+              run : echo "Worlflow_2 is Running"
