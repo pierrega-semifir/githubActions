@@ -1,0 +1,21 @@
+name: Auto Branch Deletion
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  auto-branch-deletion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Delete branch
+        run: |
+          if [[ ${{ github.event.pull_request.base.ref }} == "develop" && ${{ github.event.pull_request.head.ref }} =~ ^feature/.*$ ]]; then
+            BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+            git push origin --delete $BRANCH_NAME
+          fi
