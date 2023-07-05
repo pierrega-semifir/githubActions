@@ -1,0 +1,30 @@
+name: Feature Tests
+
+on:
+  pull_request:
+    branches:
+      - 'feature/*'
+    types:
+      - opened
+
+jobs:
+  feature-tests:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [16, 14]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      
+      - name: Check out pull request
+        run: if github.event.pull_request.base.ref != 'develop'
+          exit 1
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Run tests coverage
+        run: npm run test:coverage
