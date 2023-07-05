@@ -1,0 +1,20 @@
+name: Commit Validation
+
+on:
+  push:
+    branches:
+      - 'features/*'
+      - 'hotfix/*'
+
+jobs:
+  commit_validation_job:
+    runs-on: ubuntu-latest
+
+    steps:
+        uses: actions/checkout@v3
+
+      - name: Commit Validation
+        uses: commit-message-checker@v3
+          with:
+          pattern: '(?:build|docs|refactor|test|fix|perf|chore|feat)(?:\(\w+\))?:\s[a-z]{1,2}.+'
+          error: "The commit message must follow the commit messages guidelines"
