@@ -1,4 +1,4 @@
-name: Amnesia
+name: demo_Amnesia
 on: workflow_dispatch
 
 env:

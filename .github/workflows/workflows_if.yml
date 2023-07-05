@@ -1,4 +1,4 @@
-name: if
+name: exo_if
 on: [push, pull_request]
 
 env:

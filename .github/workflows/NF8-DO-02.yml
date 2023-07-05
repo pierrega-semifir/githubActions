@@ -1,0 +1,34 @@
+name: Feature Tests with Coverage
+
+on:
+  pull_request:
+    branches:
+      - 'develop'
+    types:
+      - opened
+
+
+jobs:
+  feature-tests-with-coverage:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16, 14]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Run tests coverage
+        run: npm run test:coverage
+          cp ./coverage/coverage.txt ${{ github.workspace }}/coverage.txt
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: ${{ github.workspace }}/coverage.txt

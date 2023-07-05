@@ -1,4 +1,4 @@
-name: if
+name: demo_if
 on : workflow_dispatch
 
 env:

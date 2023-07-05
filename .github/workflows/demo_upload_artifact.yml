@@ -1,4 +1,4 @@
-name: upload-download-artifact
+name: demo_upload-download-artifact
 on: workflow_dispatch
 
 
