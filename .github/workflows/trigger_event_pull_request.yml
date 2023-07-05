@@ -1,4 +1,4 @@
-name: Pull Requests
+name: Pull Requests For Merge
 on: 
     pull_request:
         types: [closed]

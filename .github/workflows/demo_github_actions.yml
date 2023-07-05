@@ -1,4 +1,4 @@
-name: learn_github_actions
+name: demo_learn_github_actions
 on: workflow_dispatch # This means the workflow will be triggered manually
 jobs:
     check-bats-version:

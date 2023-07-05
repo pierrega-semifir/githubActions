@@ -1,4 +1,4 @@
-name: Workflow depends
+name: exo_Workflow depends
 on: workflow_dispatch
 
 jobs:

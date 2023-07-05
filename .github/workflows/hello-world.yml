@@ -1,5 +1,5 @@
-name: hello_world
-on: workflow_dispatch # This means the workflow will be triggered manually or [push]
+name: exo_hello_world
+on: workflow_dispatch # This means the workflow will be triggered manually
 jobs:
     hello_world_job:
         runs-on: ubuntu-latest
