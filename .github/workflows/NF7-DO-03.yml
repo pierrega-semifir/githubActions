@@ -17,5 +17,5 @@ jobs:
         - name: Commit Validation
           uses: gsactions/commit-message-checker@v2
           with:
-            pattern: '(?:build|docs|refactor|test|fix|perf|chore|feat)(?:\(\w+\))?:\s[a-z]{1,2}.+'
+            pattern: '(?:build|docs|refactor|test|fix|perf|chore|feat)(?:\(\w+\))?:\s\s([a-z]|[A-Z]){1,2}.+'
             error: "The commit message must follow the commit messages guidelines"
